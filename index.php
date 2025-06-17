@@ -10,8 +10,8 @@ $conn = mysqli_init();
 mysqli_ssl_set($conn,NULL,NULL, "/var/www/html/DigiCertGlobalRootCA.crt.pem", NULL, NULL);
 mysqli_real_connect($conn, 'reboot-server.mysql.database.azure.com', 'skmnhokqqk', 'U44$dIg6$TVuoW53', 'reboot-server', 3306, MYSQLI_CLIENT_SSL);
 if (mysqli_connect_errno($conn)) {
-die('Failed to connect to MySQL: '.mysqli_connect_error());
-header("location: /failure.php");
+//die('Failed to connect to MySQL: '.mysqli_connect_error()
+header(location: "/failure.php");
 }
 
 
@@ -38,12 +38,12 @@ $sql="INSERT INTO `trip`.`trip` (`name`, `email`, `gender`, `age`, `phone`, `oth
 if($conn->query($sql)==true)
 {
     //echo "Successfully inserted";
-    header(Location: "/success.php");
+    header(location: "/success.php");
    
 }
 else{
     //echo "ERROR $sql <br> $conn->error"; 
-    header("location: /failure.php");
+    header(location: "/failure.php");
 }
 
 
