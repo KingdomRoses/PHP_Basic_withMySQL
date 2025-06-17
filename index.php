@@ -2,7 +2,7 @@
 <?php
 
 if(isset($_POST['name'])){
-include(/databaseE)
+
 
 
 //set connection variables
