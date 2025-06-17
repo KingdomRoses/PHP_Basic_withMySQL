@@ -15,9 +15,13 @@ header(location: "/failure.php");
 }
 
 
-//creating db connection
-//conn=mysqli_connect($server,$username,$password);
- 
+
+// ...existing code...
+$result = $conn->query("SELECT * FROM trip.trip");
+while ($row = $result->fetch_assoc()) {
+    echo htmlspecialchars($row['name']) . "<br>";
+}
+// ...existing code...
 
 //collect post variables
 $name=$_POST['name'];
@@ -38,7 +42,7 @@ $sql="INSERT INTO `trip`.`trip` (`name`, `email`, `gender`, `age`, `phone`, `oth
 if($conn->query($sql)==true)
 {
     //echo "Successfully inserted";
-    header(location: "/success.php");
+    header(location: "https://reboot.azurewebsites.net/success.php");
    
 }
 else{
