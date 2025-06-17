@@ -11,12 +11,12 @@ mysqli_ssl_set($conn,NULL,NULL, "/var/www/html/DigiCertGlobalRootCA.crt.pem", NU
 mysqli_real_connect($conn, 'reboot-server.mysql.database.azure.com', 'skmnhokqqk', 'U44$dIg6$TVuoW53', 'reboot-server', 3306, MYSQLI_CLIENT_SSL);
 if (mysqli_connect_errno($conn)) {
 die('Failed to connect to MySQL: '.mysqli_connect_error());
-header("location: index.php?signupsuccess=false");
+header("location: /failure.php");
 }
 
 
 //creating db connection
-$conn=mysqli_connect($server,$username,$password);
+//conn=mysqli_connect($server,$username,$password);
  
 
 //collect post variables
@@ -26,14 +26,6 @@ $gender=$_POST['gender'];
 $age=$_POST['age'];
 $phone=$_POST['phone'];
 $desc=$_POST['desc'];
-
-
-//check for connection success
-if(!$conn)
-{
-    die("connection failed".mysqli_connect_error());
-    header("location: index.php?signupsuccess=false");
-}
 
 
 $sql="INSERT INTO `trip`.`trip` (`name`, `email`, `gender`, `age`, `phone`, `other`,
@@ -50,6 +42,7 @@ if($conn->query($sql)==true)
 }
 else{
     echo "ERROR $sql <br> $conn->error"; 
+    header("location: /failure.php");
 }
 
 
