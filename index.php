@@ -1,5 +1,16 @@
-
 <?php
+// ...existing code...
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+// ...existing code...
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Process form data here
+
+    header('Location: success.php');
+    exit;
+}
 
 if(isset($_POST['name'])){
 
@@ -42,7 +53,7 @@ $sql="INSERT INTO `trip`.`trip` (`name`, `email`, `gender`, `age`, `phone`, `oth
 if($conn->query($sql)==true)
 {
     //echo "Successfully inserted";
-    header(location: "https://reboot.azurewebsites.net/success.php");
+    header(location: "/success.php");
    
 }
 else{
