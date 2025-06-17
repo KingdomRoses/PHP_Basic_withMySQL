@@ -37,12 +37,12 @@ $sql="INSERT INTO `trip`.`trip` (`name`, `email`, `gender`, `age`, `phone`, `oth
 //execute the query
 if($conn->query($sql)==true)
 {
-    echo "Successfully inserted";
+    //echo "Successfully inserted";
     header(Location: "/success.php");
    
 }
 else{
-    echo "ERROR $sql <br> $conn->error"; 
+    //echo "ERROR $sql <br> $conn->error"; 
     header("location: /failure.php");
 }
 
