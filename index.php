@@ -2,12 +2,16 @@
 <?php
 
 if(isset($_POST['name'])){
+include(/databaseE)
 
 
 //set connection variables
-$server="localhost";
-$username="root";
-$password="";
+$conn = mysqli_init();
+mysqli_ssl_set($conn,NULL,NULL, "/var/www/html/DigiCertGlobalRootCA.crt.pem", NULL, NULL);
+mysqli_real_connect($conn, 'reboot-server.mysql.database.azure.com', 'skmnhokqqk', 'U44$dIg6$TVuoW53', 'reboot-server', 3306, MYSQLI_CLIENT_SSL);
+if (mysqli_connect_errno($conn)) {
+die('Failed to connect to MySQL: '.mysqli_connect_error());
+}
 
 
 //creating db connection
