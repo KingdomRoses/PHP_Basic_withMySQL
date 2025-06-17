@@ -38,6 +38,7 @@ $sql="INSERT INTO `trip`.`trip` (`name`, `email`, `gender`, `age`, `phone`, `oth
 if($conn->query($sql)==true)
 {
     echo "Successfully inserted";
+    header(Location: "/success.php");
    
 }
 else{
