@@ -11,6 +11,7 @@ mysqli_ssl_set($conn,NULL,NULL, "/var/www/html/DigiCertGlobalRootCA.crt.pem", NU
 mysqli_real_connect($conn, 'reboot-server.mysql.database.azure.com', 'skmnhokqqk', 'U44$dIg6$TVuoW53', 'reboot-server', 3306, MYSQLI_CLIENT_SSL);
 if (mysqli_connect_errno($conn)) {
 die('Failed to connect to MySQL: '.mysqli_connect_error());
+header("location: index.php?signupsuccess=false");
 }
 
 
@@ -31,6 +32,7 @@ $desc=$_POST['desc'];
 if(!$conn)
 {
     die("connection failed".mysqli_connect_error());
+    header("location: index.php?signupsuccess=false");
 }
 
 
