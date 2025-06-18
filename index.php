@@ -1,20 +1,28 @@
 <?php
 
-$Servername = "reboot-ctf.mysql.database.azure.com";
+//set universal variables
+$servername = "reboot-server.mysql.database.azure.com";
 $username = "skmnhokqqk";
-$password = "10 things I hate about you";
+$password = "10 things I hate about you!";
+$database = "players";
+$table = "competitors";
 
-$conn = new mysqli($Servername, $username, $password, "players");
+//create a new connection using universal variables
+$conn = new mysqli($servername, $username, $password);
 
-if($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+//if connection fails, die and echo error
+if (mysqli_connect_errno($conn)) {
+    die("Failed to connect to MySQL: " . $conn->connect_error);
 }
 
-echo "Connected successfully";
-
-
+//if the connection succeeds echo confirmation
+echo "Connected Successfully"
+    
 //close db connection
 $conn->close();
 
 ?>
+
+
+
 
