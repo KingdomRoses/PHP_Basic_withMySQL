@@ -16,7 +16,7 @@ if (mysqli_connect_errno($conn)) {
 }
 
 //if the connection succeeds echo confirmation
-echo "Connected Successfully"
+echo "Connected Successfully";
     
 //close db connection
 $conn->close();
